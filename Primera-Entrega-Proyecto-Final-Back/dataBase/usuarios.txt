@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "carritoID": 1,
+    "usuario": "andper",
+    "contrasenia": 12345678,
+    "admin": true,
+    "login": false
+  },
+  {
+    "id": 2,
+    "carritoID": 2,
+    "usuario": "pepito",
+    "contrasenia": 12345678,
+    "admin": false,
+    "login": false
+  },
+  {
+    "id": 3,
+    "carritoID": 3,
+    "usuario": "andres",
+    "contrasenia": 123,
+    "admin": false,
+    "login": false
+  }
+]
