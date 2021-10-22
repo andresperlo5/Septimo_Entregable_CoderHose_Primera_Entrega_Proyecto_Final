@@ -19,7 +19,9 @@ function NavbarAdmin() {
 
     const handleSubmitLogout = () => {
         axios.get(`http://localhost:3001/api/usuarios/logout/${idAdmin}`)
-        localStorage.removeItem('id')
+        localStorage.removeItem('idUser')
+        localStorage.removeItem('idCart')
+        localStorage.removeItem('admin')
         history.push('/')
     }
 

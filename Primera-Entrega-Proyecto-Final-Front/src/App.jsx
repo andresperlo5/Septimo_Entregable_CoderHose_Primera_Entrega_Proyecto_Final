@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/admin" exact component={AdminPages} />
+        <PrivateRoute path="/admin" role={'admin'} component={AdminPages} />
         <Route path="/producto/:id" exact component={ProductoIdPages} />
         <Route path="/carrito" exact component={Carrito} />
         <Route path="/loginUser" exact component={LoginPages} />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useHistory, useParams } from 'react-router'
+import { Redirect} from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 function NavbarHome() {
@@ -26,11 +27,11 @@ function NavbarHome() {
             localStorage.setItem('idUser', res.data[0].id)
             localStorage.setItem('idCart', res.data[0].carritoID)
             let reSetData = res.data[0].admin
+            localStorage.setItem('admin', res.data[0].admin)
             if (reSetData == true) {
-                localStorage.setItem('admin', res.data[0].admin)
-                history.push('/admin')
+                window.location.href = '/admin'
             } else {
-                history.push('/loginUser')
+                window.location.href = '/loginUser'
             }
         }
     }
@@ -46,7 +47,7 @@ function NavbarHome() {
                 </button>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <a className="nav-link active" href="#">Inicio</a>
+                        <a className="nav-link active text-center" href="/">Inicio</a>
 
                         {/* Boton Modal Inicio de Sesion */}
                         <button type="button" className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal1">
@@ -65,11 +66,11 @@ function NavbarHome() {
                                         <form onSubmit={handleSubmitLogin}>
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1a" class="form-label">Usuario</label>
-                                                <input type="text" class="form-control" id="exampleInputEmail1a" aria-describedby="emailHelp" onChange={(e) => { setUsuario(e.target.value) }} required/>
+                                                <input type="text" class="form-control" id="exampleInputEmail1a" aria-describedby="emailHelp" onChange={(e) => { setUsuario(e.target.value) }} required />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInputPassword1a" class="form-label">Contraseña</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1a" onChange={(e) => { setContrasenia(e.target.value) }} required/>
+                                                <input type="password" class="form-control" id="exampleInputPassword1a" onChange={(e) => { setContrasenia(e.target.value) }} required />
                                             </div>
 
                                             <button type="submit" class="btn btn-outline-primary">Iniciar Sesion</button>
@@ -96,11 +97,11 @@ function NavbarHome() {
                                         <form onSubmit={handleSubmitReg}>
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1b" class="form-label">Usuario</label>
-                                                <input type="text" class="form-control" id="exampleInputEmail1b" aria-describedby="emailHelp" onChange={(e) => { setUsuario(e.target.value) }} required/>
+                                                <input type="text" class="form-control" id="exampleInputEmail1b" aria-describedby="emailHelp" onChange={(e) => { setUsuario(e.target.value) }} required />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInputPassword1b" class="form-label">Contraseña</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1b" onChange={(e) => { setContrasenia(e.target.value) }} required/>
+                                                <input type="password" class="form-control" id="exampleInputPassword1b" onChange={(e) => { setContrasenia(e.target.value) }} required />
                                             </div>
 
                                             <button type="submit" class="btn btn-outline-primary">Enviar Datos</button>
